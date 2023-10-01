@@ -1,6 +1,12 @@
-import sapp from "@randajan/simple-lib";
+import slib from "@randajan/simple-lib";
 
 
-sapp(process.env.NODE_ENV !== "dev", {
-    external:["@randajan/jet-core"]
+slib(process.env.NODE_ENV !== "dev", {
+    lib:{
+        loader:{
+            ".js":"jsx"
+        },
+        entries:[ "./index.js", "./mods/toJSX.js", "./mods/toHTML.js"]
+    },
+    
 })

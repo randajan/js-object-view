@@ -21,6 +21,31 @@ yarn add @randajan/js-object-view
 
 ## Main methods
 *example of use*
+
+
+```js
+import objectToHTML from "../../dist/mods/toHTML";
+
+const customData = {}; //replace with custom object with source data
+
+window.onload = _=>document.getElementById("root").outerHTML = objectToHTML(customData);
+
+```
+
+```js
+import React from "react";
+import { createRoot } from 'react-dom/client';
+import objectToJSX from "../../dist/mods/toJSX";
+
+const customData = {}; //replace with custom object with source data
+
+createRoot(document.getElementById("root")).render(objectToJSX(customData));
+
+```
+
+
+
+
 ```js
 
 window.onload = _=>{
