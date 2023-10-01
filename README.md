@@ -24,7 +24,7 @@ yarn add @randajan/js-object-view
 
 
 ```js
-import objectToHTML from "../../dist/mods/toHTML";
+import objectToHTML from "@randajan/js-object-view/toHTML";
 
 const customData = {}; //replace with custom object with source data
 
@@ -35,7 +35,7 @@ window.onload = _=>document.getElementById("root").outerHTML = objectToHTML(cust
 ```js
 import React from "react";
 import { createRoot } from 'react-dom/client';
-import objectToJSX from "../../dist/mods/toJSX";
+import objectToJSX from "@randajan/js-object-view/toJSX";
 
 const customData = {}; //replace with custom object with source data
 
