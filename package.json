@@ -1,6 +1,6 @@
 {
   "name": "@randajan/js-object-view",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Iterate through object and organize key-value pairs",
   "repository": "randajan/js-object-view",
   "type": "module",
