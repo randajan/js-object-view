@@ -5,7 +5,7 @@ export default [
       "guid": "cac2a8fc-982b-4096-a92d-f96b785dcd89",
       "isActive": false,
       "balance": "$1,400.86",
-      "picture": "http://placehold.it/32x32",
+      "picture": "https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516_1280.jpg",
       "age": 38,
       "eyeColor": "blue",
       "name": "Mcknight Manning",
@@ -18,11 +18,6 @@ export default [
       "registered": "2018-04-08T07:45:30 -02:00",
       "latitude": 61.318884,
       "longitude": -127.4955,
-      "test":[
-        new Set(["a", "b", "c", "d"]),
-        new Set(["a", "b", "d", "r"]),
-        new Set(["a", "c"])
-      ],
       "tags": [
         "magna",
         "esse",

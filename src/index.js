@@ -1,8 +1,11 @@
-import { createViewGenerator } from "./class/ViewGenerator";
+import { ObjectViewHTML, toHTML } from "./class/ObjectViewHTML";
 import { defineMapable } from "./tools";
 
-export default createViewGenerator;
+
+
+export default toHTML;
 export {
-    createViewGenerator,
+    toHTML,
+    ObjectViewHTML,
     defineMapable
 }

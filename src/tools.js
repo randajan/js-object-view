@@ -3,6 +3,9 @@ export const isFce = any=>typeof any === "function";
 export const isArr = any=>Array.isArray(any);
 export const isDate = any=>any instanceof Date;
 export const isObj = any=>(any != null && any.constructor === Object);
+export const isImg = url=>/\.(jpg|jpeg|png|gif|webp|bmp|svg|ico|apng|avif)$/.test(url.pathname);
+
+export const toFce = (any, customDef=false, defVal)=>isFce(any) ? any : isFce(customDef) ? customDef : customDef ? ()=>def : ()=>{};
 
 export const parseURL = any=>{ try { return new URL(any); } catch(e) { } }
 

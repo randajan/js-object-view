@@ -8,8 +8,7 @@
   "module": "dist/index.js",
   "exports": {
     ".": "./dist/index.js",
-    "./toHTML": "./dist/mods/toHTML.js",
-    "./toJSX": "./dist/mods/toJSX.js"
+    "./jsx": "./dist/jsx.js"
   },
   "scripts": {
     "start": "set NODE_ENV=dev&& node ./index.js",
@@ -18,7 +17,7 @@
   "license": "MIT",
   "peerDependencies": {},
   "devDependencies": {
-    "@randajan/simple-lib": "^2.3.1",
+    "@randajan/simple-lib": "^2.4.0",
     "react": "^19.0.0"
   },
   "files": [
