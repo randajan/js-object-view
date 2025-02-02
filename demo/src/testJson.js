@@ -1,4 +1,4 @@
-[
+export default [
     {
       "_id": "63bf77517c58256d5e23ae7a",
       "index": 0,
@@ -18,6 +18,11 @@
       "registered": "2018-04-08T07:45:30 -02:00",
       "latitude": 61.318884,
       "longitude": -127.4955,
+      "test":[
+        new Set(["a", "b", "c", "d"]),
+        new Set(["a", "b", "d", "r"]),
+        new Set(["a", "c"])
+      ],
       "tags": [
         "magna",
         "esse",

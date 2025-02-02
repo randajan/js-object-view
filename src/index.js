@@ -1,9 +1,8 @@
-import { objectView } from "./objectView";
-import { fetchArrayColumns } from "./tools";
+import { createViewGenerator } from "./class/ViewGenerator";
+import { defineMapable } from "./tools";
 
-
-export default objectView;
+export default createViewGenerator;
 export {
-    objectView,
-    fetchArrayColumns
+    createViewGenerator,
+    defineMapable
 }

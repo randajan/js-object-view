@@ -1,5 +1,5 @@
 import objectView from "../../dist/mods/toHTML";
-import testJSON from "./testJson.json";
+import testJSON from "./testJson";
 
 
 window.onload = _=>{
