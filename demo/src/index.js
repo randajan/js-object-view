@@ -1,4 +1,4 @@
-import toHTML from "../../dist";
+import toHTML from "../../dist/esm/index.mjs";
 import testJSON from "./testJson";
 
 

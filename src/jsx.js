@@ -18,7 +18,7 @@ export class ObjectViewJSX extends ObjectViewHTML {
 
     toBlank() { return null; }
 
-    toBoolean(value) { return <input type="checkbox" checked={value ? true : false} style={{pointerEvents:"none"}}/>; }
+    toBoolean(value) { return <input type="checkbox" checked={value ? true : false} style={{pointerEvents:"none"}} readOnly/>; }
     toImg(url, value, maxHeight, maxWidth) {
         return <img alt={url.ref} src={url.href} title={value} style={{"max-height":maxHeight+"px", "max-width":maxWidth+"px"}}/>
     }

@@ -4,11 +4,17 @@
   "description": "Iterate through object and organize key-value pairs",
   "repository": "randajan/js-object-view",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
   "exports": {
-    ".": "./dist/index.js",
-    "./jsx": "./dist/jsx.js"
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs"
+    },
+    "./jsx": {
+      "import": "./dist/esm/jsx.mjs",
+      "require": "./dist/cjs/jsx.cjs"
+    }
   },
   "scripts": {
     "start": "set NODE_ENV=dev&& node ./index.js",
@@ -17,7 +23,7 @@
   "license": "MIT",
   "peerDependencies": {},
   "devDependencies": {
-    "@randajan/simple-lib": "^2.4.0",
+    "@randajan/simple-lib": "^3.0.2",
     "react": "^19.0.0"
   },
   "files": [
