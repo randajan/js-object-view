@@ -5,7 +5,7 @@ export const isDate = any=>any instanceof Date;
 export const isObj = any=>(any != null && any.constructor === Object);
 export const isImg = url=>/\.(jpg|jpeg|png|gif|webp|bmp|svg|ico|apng|avif)$/.test(url.pathname);
 
-export const toFce = (any, customDef=false, defVal)=>isFce(any) ? any : isFce(customDef) ? customDef : customDef ? ()=>def : ()=>{};
+export const toFce = (any, customDef=false, defVal)=>isFce(any) ? any : isFce(customDef) ? customDef : customDef ? ()=>defVal : ()=>{};
 
 export const parseURL = any=>{ try { return new URL(any); } catch(e) { } }
 
@@ -14,6 +14,15 @@ export const toNum = (any, def=0)=>isNum(any) ? any : def;
 export const maxNum = (...n)=>Math.max(...n.filter(isNum));
 export const minNum = (...n)=>Math.min(...n.filter(isNum));
 export const frameNum = (any, min, max)=>maxNum(min, minNum(max, any));
+
+export const escText = (s) => String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+export const escAttr = (s) => escText(s)
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 
 const _mapables = [];
 

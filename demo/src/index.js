@@ -1,10 +1,10 @@
-import toHTML from "../../dist/esm/index.mjs";
+import toSVG from "../../dist/esm/svg.mjs";
 import testJSON from "./testJson";
 
 
 window.onload = _=>{
     
-    document.getElementById("root").outerHTML = toHTML(testJSON, {longTextSize:32, maxImgHeight:300, maxImgWidth:500});
+    document.getElementById("root").outerHTML = toSVG(testJSON, {longTextSize:32, maxImgHeight:300, maxImgWidth:500});
 
 }
 

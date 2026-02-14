@@ -96,6 +96,22 @@ export class ObjectViewJSX extends ObjectViewHTML {
 
 ```
 
+## SVG Support
+
+You can also render the same table structure into SVG via `@randajan/js-object-view/svg`. It outputs a self-contained `<svg>` string with text laid out in table cells.
+
+```javascript
+import { ObjectViewSVG, toSVG } from "@randajan/js-object-view/svg";
+
+const svg = toSVG(data, {
+    fontFamily: "monospace",
+    fontSize: 12,
+    cellPaddingX: 6,
+    cellPaddingY: 4,
+    borderWidth: 1
+});
+```
+
 ## Support
 
 If you have any questions or suggestions for improvements, feel free to open an issue in the repository.

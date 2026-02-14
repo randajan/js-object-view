@@ -212,7 +212,7 @@ var objectView = (() => {
       if (t === "boolean") {
         return this.toBoolean(any);
       }
-      if (t !== "string" && !t.hasOwnProperty("toString")) {
+      if (t !== "string" && !any.hasOwnProperty("toString")) {
         return toUnknown(any);
       }
       any = String(any);

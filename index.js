@@ -7,7 +7,7 @@ slib(argv.isBuild, {
         loader:{
             ".js":"jsx"
         },
-        entries:[ "./index.js", "./jsx.js"],
+        entries:[ "./index.js", "./jsx.js", "./svg.js"],
         standalone:"objectView"
     },
     

@@ -1,4 +1,4 @@
-import { frameNum, isDate, isFce, isImg, maxNum, parseURL, toFce, toNum } from "../tools";
+import { escAttr, escText, frameNum, isDate, isImg, maxNum, parseURL, toFce, toNum } from "../tools";
 import { toValue } from "./privateMethods";
 
 
@@ -24,11 +24,11 @@ export class ObjectViewHTML {
     toView(content) { return `<div class="View">${content}</div>`; }
 
     toList(items, mapType) {
-        return `<table class="List" style="border-collapse: collapse;" data-maptype="${mapType}"><tbody>${items.join("")}</tbody></table>`;
+        return `<table class="List" style="border-collapse: collapse;" data-maptype="${escAttr(mapType)}"><tbody>${items.join("")}</tbody></table>`;
     }
 
     toListRow(key, item, rowKey) {
-        return `<tr class="ListRow" data-rowkey="${rowKey}">${key}${item}</tr>`;
+        return `<tr class="ListRow" data-rowkey="${escAttr(rowKey)}">${key}${item}</tr>`;
     }
 
     toListKey(key) {
@@ -36,7 +36,7 @@ export class ObjectViewHTML {
     }
 
     toListItem(item, key) {
-        return `<td class="ListItem" data-key="${key}" style="vertical-align:top; padding:2px 10px; border:1px solid black;">${item}</td>`;
+        return `<td class="ListItem" data-key="${escAttr(key)}" style="vertical-align:top; padding:2px 10px; border:1px solid black;">${item}</td>`;
     }
 
     toTable(cols, rows) {
@@ -48,7 +48,7 @@ export class ObjectViewHTML {
     }
 
     toTableCol(col, colKey) {
-        return `<th class="TableCol" data-colkey="${colKey}">${col}</th>`;
+        return `<th class="TableCol" data-colkey="${escAttr(colKey)}">${col}</th>`;
     }
 
     toTableRows(rows) {
@@ -56,11 +56,12 @@ export class ObjectViewHTML {
     }
 
     toTableRow(values, rowKey) {
-        return `<tr class="TableRow" data-rowkey="${rowKey}">${values.join("")}</tr>`;
+        return `<tr class="TableRow" data-rowkey="${escAttr(rowKey)}">${values.join("")}</tr>`;
     }
 
     toTableCell(value, col, rowKey, colKey) {
-        return `<td class="TableCell" data-col="${col}" data-key="${rowKey}:${colKey}" style="vertical-align:top; padding:2px 10px; border:1px solid black;">${value}</td>`;
+        const dataKey = `${rowKey}:${colKey}`;
+        return `<td class="TableCell" data-col="${escAttr(col)}" data-key="${escAttr(dataKey)}" style="vertical-align:top; padding:2px 10px; border:1px solid black;">${value}</td>`;
     }
 
     toValue(any) {
@@ -71,7 +72,7 @@ export class ObjectViewHTML {
         const t = typeof any;
         if (t === "number" || t === "bigint") { return this.toNumber(any); }
         if (t === "boolean") { return this.toBoolean(any); }
-        if (t !== "string" && !t.hasOwnProperty("toString")) { return toUnknown(any); }
+        if (t !== "string" && !any.hasOwnProperty("toString")) { return toUnknown(any); }
 
         any = String(any);
         const url = parseURL(any);
@@ -90,12 +91,12 @@ export class ObjectViewHTML {
     toBoolean(value) { return `<input type="checkbox" ${value ? "checked" : ""} style="pointer-events:none">`; }
 
     toImg(url, value, maxHeight, maxWidth) {
-        return `<img alt="${url.ref}" src="${url.href}" title="${value}" style="max-height:${maxHeight}px; max-width:${maxWidth}px"/>`;
+        return `<img alt="${escAttr(url.ref)}" src="${escAttr(url.href)}" title="${escAttr(value)}" style="max-height:${maxHeight}px; max-width:${maxWidth}px"/>`;
     }
-    toHref(url, content) { return `<a href=${url.href} target="_blank">${content}</a>`;}
+    toHref(url, content) { return `<a href="${escAttr(url.href)}" target="_blank">${content}</a>`;}
 
-    toText(str) { return `<span>${str}</span>`; }
-    toLongText(str, limit) { return `<span title="${str}">${str.substring(0, limit) + "..."}</span>`; }
+    toText(str) { return `<span>${escText(str)}</span>`; }
+    toLongText(str, limit) { return `<span title="${escAttr(str)}">${escText(str.substring(0, limit) + "...")}</span>`; }
 
     generate(any) { return toValue(this, any); }
 
