@@ -72,7 +72,7 @@ export class ObjectViewHTML {
         const t = typeof any;
         if (t === "number" || t === "bigint") { return this.toNumber(any); }
         if (t === "boolean") { return this.toBoolean(any); }
-        if (t !== "string" && !any.hasOwnProperty("toString")) { return toUnknown(any); }
+        if (t !== "string" && typeof any.toString !== "function") { return toUnknown(any); }
 
         any = String(any);
         const url = parseURL(any);
